@@ -9,10 +9,17 @@ export const getAllRoles = async () => (await pool.query(`
 `)).rows;
 
 export const getAllEmployees = async () => (await pool.query(`
-    SELECT e.id, e.first_name, e.last_name, r.title AS role, d.name AS department, r.salary, m.first_name AS manager
+    SELECT 
+        e.id AS "Employee ID",
+        e.first_name AS "First Name",
+        e.last_name AS "Last Name",
+        r.title AS "Role",
+        d.name AS "Department",
+        r.salary AS "Salary",
+        COALESCE(m.first_name || ' ' || m.last_name, 'None') AS "Manager"
     FROM employee e
-    JOIN role r ON e.role_id = r.id
-    JOIN department d ON r.department_id = d.id
+    LEFT JOIN role r ON e.role_id = r.id
+    LEFT JOIN department d ON r.department_id = d.id
     LEFT JOIN employee m ON e.manager_id = m.id
 `)).rows;
 
