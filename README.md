@@ -54,6 +54,9 @@ Contribution
 License
 - This project is lcensed under the MIT License
 
+Link to Video Walkthrough:
+- Link to video walkthrough on ScreenCastify: https://app.screencastify.com/v3/watch/bfvBUMPhKSujbzU3yZPC 
+
 Contact
 - Maxwell Hurst
 - Email: maxwell.hurst22@gmail.com
